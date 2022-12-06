@@ -56,7 +56,7 @@
     <!-- 在哪些包下，日志输出的级别 -->
     <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
     <!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
-    <logger name="com.wls.learn.logservice.service.impl.CommonLogServiceImpl" level="INFO" additivity="false">
+    <logger name="com.wls.learn.service.process.impl.DataServiceImpl" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="COMMON_FILE"/>
     </logger>

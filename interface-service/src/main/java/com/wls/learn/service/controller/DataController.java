@@ -4,13 +4,12 @@ import com.wls.learn.service.bean.ResponseCodePropertyConfig;
 import com.wls.learn.service.bean.ResponseEntity;
 import com.wls.learn.service.constant.ResponseConstant;
 import com.wls.learn.service.process.DataService;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  * @Author:wangpeng
  * @Date: 2022/12/1
@@ -29,7 +28,8 @@ public class DataController {
     private ResponseCodePropertyConfig config;
 
     @PostMapping("/sendData/{dataType}")
-    public Object collect(@PathVariable("dataType") String dataType, HttpServletRequest request) {
+    public Object collect(@PathVariable("dataType") String dataType, HttpServletRequest request) throws Exception {
+        System.out.println("请求进入了");
         dataService.process(dataType, request);
         return new ResponseEntity(ResponseConstant.CODE_0000, config.getMsg(ResponseConstant.CODE_0000), dataType);
     }

@@ -4,7 +4,7 @@ import com.wls.learn.service.bean.CustomException;
 import com.wls.learn.service.bean.ResponseCodePropertyConfig;
 import com.wls.learn.service.constant.ResponseConstant;
 import com.wls.learn.service.process.DataService;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +79,6 @@ public class DataServiceImpl implements DataService {
 
         input.close();
         String jsonStr = new String(datas, StandardCharsets.UTF_8);
-        logger.info("数据");
+        logger.info(jsonStr);
     }
 }
