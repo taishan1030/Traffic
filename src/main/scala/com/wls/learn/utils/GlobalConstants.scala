@@ -21,7 +21,25 @@ case class OutOfLimitSpeedInfo(car:String,monitorId:String,roadId:String,realSpe
 //某个时间范围内卡口的平均车速和通过的车辆数量
 case class AvgSpeedInfo(start:Long,end:Long,monitorId:String,avgSpeed:Double,carCount:Int)
 
+//套牌车辆告警信息对象
+case class RepetitionCarWarning(car:String,firstMonitor:String,secondMonitor:String,msg:String,action_time:Long)
+
+//危险驾驶的信息
+case class DangerousDrivingWarning(car:String,msg:String,create_time:Long,avgSpeed:Double)
+
+
+//违法车辆信息对象
+case class ViolationInfo(car:String,msg:String,createTime:Long)
+
+//出警记录对象
+case class PoliceAction(policeId:String,car:String,actionStatus:String,actionTime:Long)
+
+//车辆轨迹数据样例类
+case class TrackInfo(car:String,actionTime:Long,monitorId:String,roadId:String,areaId:String,speed:Double)
+
 
 object GlobalConstants {
   lazy val MONITOR_STATE_DESCRIPTOR =new MapStateDescriptor[String,MonitorInfo]("monitor_info",classOf[String],classOf[MonitorInfo])
+  lazy val VIOLATION_STATE_DESCRIPTOR =new MapStateDescriptor[String,ViolationInfo]("violation_info",classOf[String],classOf[ViolationInfo])
+
 }
